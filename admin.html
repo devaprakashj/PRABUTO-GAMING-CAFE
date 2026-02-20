@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Prabuto Gaming Cafe</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/src/admin.css" />
+</head>
+
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <img src="/logo.png" alt="Prabuto Gaming Cafe" class="login-logo" />
+            <h1 class="login-title">ADMIN PANEL</h1>
+            <p class="login-sub">Prabuto Gaming Cafe</p>
+            <form id="loginForm" class="login-form">
+                <div class="login-field">
+                    <label for="loginPass">Password</label>
+                    <input type="password" id="loginPass" placeholder="Enter admin password" required
+                        autocomplete="off" />
+                </div>
+                <p class="login-error" id="loginError"></p>
+                <button type="submit" class="btn-login">UNLOCK DASHBOARD</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div class="dashboard" id="dashboard" style="display:none;">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/logo.png" alt="Logo" class="sidebar-logo" />
+                <span class="sidebar-brand">PRABUTO</span>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="sidebar-link active" data-panel="overview">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                    </svg>
+                    Overview
+                </button>
+                <button class="sidebar-link" data-panel="bookings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Bookings
+                </button>
+                <button class="sidebar-link" data-panel="games">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <circle cx="12" cy="12" r="10" />
+                        <polygon points="10 8 16 12 10 16 10 8" />
+                    </svg>
+                    Games
+                </button>
+                <button class="sidebar-link" data-panel="pricing">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <line x1="12" y1="1" x2="12" y2="23" />
+                        <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                    </svg>
+                    Pricing
+                </button>
+                <button class="sidebar-link" data-panel="hours">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    Hours
+                </button>
+                <button class="sidebar-link" data-panel="settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                    </svg>
+                    Settings
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/" class="sidebar-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    View Site
+                </a>
+                <button class="sidebar-link" id="logoutBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <span class="mobile-title">Admin Panel</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- ===== OVERVIEW PANEL ===== -->
+            <section class="panel active" id="panel-overview">
+                <div class="panel-header">
+                    <h2>Dashboard Overview</h2>
+                    <span class="panel-date" id="currentDate"></span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card" style="--stat-color: #00e5ff;">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statTotalBookings">0</span>
+                            <span class="stat-label">Total Bookings</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--stat-color: #ff2d9b;">
+                        <div class="stat-icon">📆</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statTodayBookings">0</span>
+                            <span class="stat-label">Today's Bookings</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--stat-color: #b026ff;">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statRevenue">₹0</span>
+                            <span class="stat-label">Total Revenue</span>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="--stat-color: #25d366;">
+                        <div class="stat-icon">🎮</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statGames">0</span>
+                            <span class="stat-label">Total Games</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-section">
+                    <h3>Recent Bookings</h3>
+                    <div class="table-wrapper">
+                        <table class="admin-table" id="recentBookingsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Players</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentBookingsBody">
+                                <tr>
+                                    <td colspan="5" class="empty-msg">No bookings yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== BOOKINGS PANEL ===== -->
+            <section class="panel" id="panel-bookings">
+                <div class="panel-header">
+                    <h2>Manage Bookings</h2>
+                    <div class="panel-actions">
+                        <div class="toggle-group">
+                            <span class="toggle-label" id="bookingStatusLabel">Booking: ON</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="bookingToggle" checked />
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <button class="btn-action btn-danger" id="clearBookingsBtn">Clear All</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="admin-table" id="bookingsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Players</th>
+                                <th>Duration</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsBody">
+                            <tr>
+                                <td colspan="9" class="empty-msg">No bookings yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== GAMES PANEL ===== -->
+            <section class="panel" id="panel-games">
+                <div class="panel-header">
+                    <h2>Manage Games</h2>
+                </div>
+                <!-- 4 Players -->
+                <div class="panel-section">
+                    <div class="section-header">
+                        <h3><span class="dot" style="background:#00e5ff;"></span> 4 Players Games</h3>
+                        <button class="btn-action btn-add" data-category="4players">+ Add Game</button>
+                    </div>
+                    <div class="games-list" id="games-4players"></div>
+                </div>
+                <!-- 2 Players -->
+                <div class="panel-section">
+                    <div class="section-header">
+                        <h3><span class="dot" style="background:#ff2d9b;"></span> 2 Players Games</h3>
+                        <button class="btn-action btn-add" data-category="2players">+ Add Game</button>
+                    </div>
+                    <div class="games-list" id="games-2players"></div>
+                </div>
+                <!-- 1 Player -->
+                <div class="panel-section">
+                    <div class="section-header">
+                        <h3><span class="dot" style="background:#b026ff;"></span> 1 Player Games</h3>
+                        <button class="btn-action btn-add" data-category="1player">+ Add Game</button>
+                    </div>
+                    <div class="games-list" id="games-1player"></div>
+                </div>
+            </section>
+
+            <!-- ===== PRICING PANEL ===== -->
+            <section class="panel" id="panel-pricing">
+                <div class="panel-header">
+                    <h2>Manage Pricing</h2>
+                </div>
+                <div class="pricing-editor">
+                    <div class="price-edit-card">
+                        <label>4 Players (₹/hour)</label>
+                        <input type="number" id="price4" min="0" step="10" />
+                    </div>
+                    <div class="price-edit-card">
+                        <label>3 Players (₹/hour)</label>
+                        <input type="number" id="price3" min="0" step="10" />
+                    </div>
+                    <div class="price-edit-card">
+                        <label>2 Players (₹/hour)</label>
+                        <input type="number" id="price2" min="0" step="10" />
+                    </div>
+                    <div class="price-edit-card">
+                        <label>1 Player (₹/hour)</label>
+                        <input type="number" id="price1" min="0" step="10" />
+                    </div>
+                </div>
+                <button class="btn-action btn-save" id="savePricingBtn">💾 Save Pricing</button>
+            </section>
+
+            <!-- ===== HOURS PANEL ===== -->
+            <section class="panel" id="panel-hours">
+                <div class="panel-header">
+                    <h2>Manage Opening Hours</h2>
+                </div>
+                <div class="hours-editor" id="hoursEditor">
+                    <!-- Generated by JS -->
+                </div>
+                <button class="btn-action btn-save" id="saveHoursBtn">💾 Save Hours</button>
+            </section>
+
+            <!-- ===== SETTINGS PANEL ===== -->
+            <section class="panel" id="panel-settings">
+                <div class="panel-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="settings-form">
+                    <div class="settings-group">
+                        <h3>Store Information</h3>
+                        <div class="field">
+                            <label for="setStoreName">Store Name</label>
+                            <input type="text" id="setStoreName" />
+                        </div>
+                        <div class="field">
+                            <label for="setTagline">Tagline</label>
+                            <input type="text" id="setTagline" />
+                        </div>
+                        <div class="field">
+                            <label for="setPhone">Phone Number</label>
+                            <input type="tel" id="setPhone" />
+                        </div>
+                        <div class="field">
+                            <label for="setWhatsapp">WhatsApp Number (with country code)</label>
+                            <input type="text" id="setWhatsapp" placeholder="919790513631" />
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Social Links</h3>
+                        <div class="field">
+                            <label for="setInstagram">Instagram URL</label>
+                            <input type="url" id="setInstagram" />
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Address</h3>
+                        <div class="field">
+                            <label for="setAddress">Full Address</label>
+                            <textarea id="setAddress" rows="3"></textarea>
+                        </div>
+                        <div class="field">
+                            <label for="setMapLink">Google Maps Link</label>
+                            <input type="url" id="setMapLink" />
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Admin Security</h3>
+                        <div class="field">
+                            <label for="setPassword">Change Admin Password</label>
+                            <input type="password" id="setPassword" placeholder="Enter new password" />
+                        </div>
+                    </div>
+                    <button class="btn-action btn-save" id="saveSettingsBtn">💾 Save Settings</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add Game</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn-action btn-save" id="modalSave">Save</button>
+                <button class="btn-action" id="modalCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script type="module" src="/src/admin.js"></script>
+</body>
+
+</html>
