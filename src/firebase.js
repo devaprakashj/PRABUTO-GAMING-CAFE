@@ -8,13 +8,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCpiCnHrWGGDmkoKTCN0srK-bzPC4vKDq0",
-    authDomain: "prabuto-gaming-cafe.firebaseapp.com",
-    projectId: "prabuto-gaming-cafe",
-    storageBucket: "prabuto-gaming-cafe.firebasestorage.app",
-    messagingSenderId: "510063822148",
-    appId: "1:510063822148:web:f26f7598f63fb380ee0311",
-    measurementId: "G-DGJ4DV4XN8"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
