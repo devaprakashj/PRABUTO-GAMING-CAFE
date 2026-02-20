@@ -1403,6 +1403,68 @@ textarea {
   }
 }
 
+/* ——— DEVELOPER CREDIT ——— */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.developer-credit {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  letter-spacing: 1px;
+}
+
+.credit-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+  position: relative;
+}
+
+.credit-link:hover {
+  color: var(--white);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.credit-socials {
+  display: flex;
+  gap: 12px;
+  border-left: 1px solid rgba(176, 38, 255, 0.2);
+  padding-left: 15px;
+}
+
+.credit-socials a {
+  color: var(--text-dim);
+  transition: var(--transition);
+}
+
+.credit-socials a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+
+@media (max-width: 480px) {
+  .developer-credit {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .credit-socials {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
